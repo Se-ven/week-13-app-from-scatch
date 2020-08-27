@@ -54,6 +54,14 @@ Create your PR early as early as you can.
 
 Create an express api
 
+<dbname> based on "Collections" view on the mongodb.com admin site
+<password> based on the "Users" view on the mongodb.com admin site
+If you forget the user or password, you can edit/add/delete users in the mongodb.com admin site.
+"admin" is the username I picked for my db.
+Replace the full values in the url including the "<" and ">"
+"?retryWrites=true&w=majority" may be able to be omitted.  
+If you see any error related to this, feel free to update the value in your app.
+
 Create http files to test your api
 
 ## Step 3
