@@ -24,7 +24,7 @@ import Workouts from "./components/Workouts";
 
 
 
-function App() {
+export default function App() {
   return (
     <Container>
       <div className="App">
@@ -37,7 +37,7 @@ function App() {
         </p>
           <a
             className="App-link"
-            href="https://github.com/se-ven/"
+            href="https://www.linkedin.com/in/nickolaus-lavery-588b3412b/"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -48,6 +48,7 @@ function App() {
     </Container>
   );
 }
+
 
 function Primary(props) {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -60,11 +61,11 @@ function Primary(props) {
           Nerd Gainer
       </h2>
 
-<Nav tabs>
+        <Nav tabs>
           <Dropdown nav isOpen={dropdownOpen} toggle={toggle}>
             <DropdownToggle nav caret>
-              Diet Possibilities
-    </DropdownToggle>
+              <NavLink href="/Diets">Diet Possibilities</NavLink>
+            </DropdownToggle>
             <DropdownMenu>
               <DropdownItem>Primal</DropdownItem>
               <DropdownItem>Keto</DropdownItem>
@@ -79,7 +80,7 @@ function Primary(props) {
           <Dropdown nav is Open={dropdownOpen} toggle={toggle}>
             <DropdownToggle nav caret>
               Workout Approaches
-</DropdownToggle>
+            </DropdownToggle>
             <DropdownMenu>
               <DropdownItem>Progressive Overload</DropdownItem>
               <DropdownItem>HIT</DropdownItem>
@@ -87,11 +88,9 @@ function Primary(props) {
               <DropdownItem>Negatives</DropdownItem>
             </DropdownMenu>
           </Dropdown>
-
           <NavItem>
             <NavLink href="/WorkoutJournal">Workout Journal</NavLink>
           </NavItem>
-
         </Nav>
 
 
@@ -102,7 +101,7 @@ function Primary(props) {
 
       <Switch>
         <Route exact path="/">
-          <App />
+          <Primary />
         </Route>
         <Route path="/Diets">
           <Diets />
@@ -122,7 +121,4 @@ function Primary(props) {
   );
 }
 
-export default {
-  App,
-  Primary
-};
+

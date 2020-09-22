@@ -1,14 +1,33 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const createError = require('http-errors');
+const bodyParser = require('body-parser');
+const cors = require('cors');
+const helmet = require('helmet');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const { logger, morgan } = require('morgan');
+const { startDatabase } = require('./database/clear-common');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+const indexRouter = require('./routes/index');
+const usersRouter = require('./routes/users');
 const testAPIRouter = require('./routes/testAPI');
 
-var app = express();
+// Define express app
+const app = express();
+
+// Enhance security
+app.use(helmet());
+
+// Body Parser module to render JSON into JS objects. 
+// adds `.body` to the requests so our handler functions
+// can work with that incoming data.
+app.use(bodyParser.json());
+
+// Enable CORS for all requests *(not a secure practice)*
+app.use(cors());
+
+// Morgan for HTTP request logging
+app.use(morgan('combined'));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
